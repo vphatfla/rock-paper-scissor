@@ -2,10 +2,13 @@
 <html>
     <head>
         <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
     </head>
     <body>
        <script src="script.js"></script>
-       <h1>Rock Paper Scissors</h1>
+       <h1>rock paper scissor</h1>
        <div class="buttons">
            <button class="btn" id ="rock" onClick="getID(this.id)"><img src="image/rock-icon.png"></button>
            <button class="btn" id ="paper" onClick="getID(this.id)" ><img src="image/paper-icon.png"></button>
@@ -13,7 +16,20 @@
        </div>
 
        <div id="image-player"></div>
-       <p id="result">Begin by clicking on any button above</p>
+       <p id="result">Begin by clicking on any button above <br>You have total 5 rounds to find out the winner, you still can play after first 5 round, but they won't count</p>
        <div id="image-computer"></div>
+       <div class = "score">
+           <div class ="player-score">
+                <p>YOU</p>
+                <p id="player-score-result">0</p>
+           </div>
+           <div class ="computer-score">
+                <p>COMPUTER</p>
+                <p id="computer-score-result">0</p>
+           </div>
+       </div>
+
+       <p id="final-result"></p>
+       <button onclick ="window.location.reload();" class="reset">PLAY AGAIN</button>
     </body>
 </html>

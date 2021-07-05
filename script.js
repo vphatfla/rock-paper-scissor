@@ -1,6 +1,6 @@
 let choice = ['rock','paper', 'scissor'];
 let playerChoice ="";
-
+let check_5_score = false;
 function getID(clicked){
     game(clicked, computerPlay());
 }
@@ -14,8 +14,14 @@ function play(playerSelection, computerSelection){
     if (playerSelection == computerSelection) result = "Tie, no win, no lose"
     else if ( ((playerSelection == "rock") && (computerSelection == "scissor")) 
     || ((playerSelection=="scissor") && (computerSelection=="paper"))
-    || ((playerSelection=="paper") && (computerSelection=="rock"))) result = "Player won"
-    else result =  "Computer Won";
+    || ((playerSelection=="paper") && (computerSelection=="rock"))){
+        showScore('player-score-result');
+        result = "Player won";}
+    else {
+        showScore('computer-score-result');
+        result =  "Computer Won";
+    }
+
     return result;
 }
 function game(playerChoice, computerChoice){
@@ -39,8 +45,24 @@ function showSelection(choice, displayID){
             x.setAttribute("src", "image/scissor.png");
             break;
     }
-    x.setAttribute("width", "50px");
+    x.setAttribute("width", "70px");
     x.setAttribute("height", "auto");
     x.setAttribute("alt", "The Pulpit Rock");
     document.getElementById(displayID).appendChild(x);      
+}
+
+function showScore(id){
+    while (!check_5_score){
+        let currentScore = parseInt(document.getElementById(id).innerHTML);
+        let newScore = currentScore +1;
+        console.log('first', newScore);
+        if (newScore == 5) {
+            check_5_score=true;
+            if (id="player-score-result") document.getElementById("final-result").innerHTML = "OH, YOU WIN A COMPUTER?"
+            else document.getElementById("final-result").innerHTML ="HAHA,YOU'RE BEAT UP BY A COMPUTER"
+        }
+        document.getElementById(id).innerHTML = "";
+        document.getElementById(id).innerHTML = newScore.toString();
+        break;
+    }
 }
