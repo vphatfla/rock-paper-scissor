@@ -56,7 +56,7 @@ function showScore(id){
         let currentScore = parseInt(document.getElementById(id).innerHTML);
         let newScore = currentScore +1;
         console.log('first', newScore);
-        if (newScore == 5) {
+        if (newScore == 10) {
             check_5_score=true;
             if (id="player-score-result") document.getElementById("final-result").innerHTML = "OH, YOU WIN A COMPUTER?"
             else document.getElementById("final-result").innerHTML ="HAHA,YOU'RE BEAT UP BY A COMPUTER"
